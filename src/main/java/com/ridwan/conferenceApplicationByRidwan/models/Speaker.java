@@ -1,4 +1,4 @@
-package com.pluralsight.conferencedemo.models;
+package com.ridwan.conferenceApplicationByRidwan.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Type;

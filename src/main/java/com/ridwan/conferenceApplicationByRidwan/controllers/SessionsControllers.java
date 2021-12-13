@@ -1,7 +1,7 @@
-package com.pluralsight.conferencedemo.controllers;
+package com.ridwan.conferenceApplicationByRidwan.controllers;
 
-import com.pluralsight.conferencedemo.models.Session;
-import com.pluralsight.conferencedemo.repositories.SessionRepositories;
+import com.ridwan.conferenceApplicationByRidwan.models.Session;
+import com.ridwan.conferenceApplicationByRidwan.repositories.SessionRepositories;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

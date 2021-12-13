@@ -1,4 +1,4 @@
-package com.pluralsight.conferencedemo.config;
+package com.ridwan.conferenceApplicationByRidwan.config;
 
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +14,7 @@ public class PersistenceConfiguration {
         builder.username("postgres");
         builder.password("dymond");
         builder.url("jdbc:postgresql://localhost:5432/conference_app");
-        System.out.println("ARE THERE STILL ANGELS IN HELL?");
+        System.out.println("ARE THERE ANGELS IN HELL?");
         return builder.build();
     }
 }

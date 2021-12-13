@@ -1,6 +1,6 @@
-package com.pluralsight.conferencedemo.repositories;
+package com.ridwan.conferenceApplicationByRidwan.repositories;
 
-import com.pluralsight.conferencedemo.models.Session;
+import com.ridwan.conferenceApplicationByRidwan.models.Session;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SessionRepositories extends JpaRepository<Session, Long> {
