@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/speakers")
+@RequestMapping("/api/v1/speakers")
 public class SpeakersControllers {
     @Autowired
     private SpeakerRepositories speakerRepositories;
