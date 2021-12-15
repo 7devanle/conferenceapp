@@ -17,9 +17,10 @@ public class Speaker {
     private String title;
     private String company;
     private String speaker_bio;
-    @Lob
-    @Type(type = "org.hibernate.type.BinaryType")
+    @Lob//case of large objects
+    @Type(type = "org.hibernate.type.BinaryType")//using hibenate for binarydate
     private byte[] speaker_Photo;
+
     @ManyToMany(mappedBy = "speakers")
     @JsonIgnore
     private List<Session> session;

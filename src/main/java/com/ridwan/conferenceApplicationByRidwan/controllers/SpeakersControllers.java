@@ -23,10 +23,11 @@ public class SpeakersControllers {
     public List<Speaker> list(){
         return speakerRepositories.findAll();
     }
+
     @GetMapping
     @RequestMapping("{id}")
-    public Speaker get(@PathVariable Long id){
-        return speakerRepositories.getOne(id);
+    public Speaker getSpeakeById(@PathVariable Long id){
+        return speakerRepositories.getById(id);
     }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -35,15 +36,17 @@ public class SpeakersControllers {
     }
 
 
-    @RequestMapping( value = "{id}", method = RequestMethod.DELETE  )
-    public void delete(@PathVariable Long id){
+    @DeleteMapping( value = "{id}")
+    public String delete(@PathVariable Long id){
         speakerRepositories.deleteById(id);
+        return "speaker " + speakerRepositories.getById(id).getSpeaker_id() + " is deleted";
+
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "{id}")
     public Speaker update(@PathVariable Long id, @RequestBody Speaker speaker){
-        Speaker existingSpeaker = speakerRepositories.getOne(id);
-        BeanUtils.copyProperties(speaker, existingSpeaker, "session_id");
+        Speaker existingSpeaker = speakerRepositories.getById(id);
+        BeanUtils.copyProperties(speaker, existingSpeaker, "speaker_id");
         return speakerRepositories.saveAndFlush(existingSpeaker);
     }
 }

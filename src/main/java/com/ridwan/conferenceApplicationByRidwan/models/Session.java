@@ -5,12 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.List;
 
+//cause of database name
 @Entity(name = "sessions")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handle"})
 public class Session {
     //fields
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id// to select the primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//autogenerates IDs
     private long session_id;
     private String session_name;
     private String session_description;

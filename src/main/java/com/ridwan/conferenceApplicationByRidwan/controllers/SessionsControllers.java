@@ -25,22 +25,25 @@ public class SessionsControllers {
     @GetMapping
     @RequestMapping("{id}")
     public Session get(@PathVariable Long id){
-        return sessionRepositories.getOne(id);
+        if (sessionRepositories.existsById(id)){
+            return sessionRepositories.getById(id);
+        }
+        return null;
     }
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public Session create(@RequestBody final Session session ){
         return sessionRepositories.saveAndFlush(session);
     }
 
-    @RequestMapping( value = "{id}", method = RequestMethod.DELETE  )
-    public void delete(@PathVariable Long id){
+    @DeleteMapping( value = "{id}")
+    public String delete(@PathVariable Long id){
         sessionRepositories.deleteById(id);
+        return "session " + sessionRepositories.getById(id).getSession_id() + "is deleted";
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "{id}")
     public Session update(@PathVariable Long id, @RequestBody Session session){
-        Session existingSession = sessionRepositories.getOne(id);
+        Session existingSession = sessionRepositories.getById(id);
         BeanUtils.copyProperties(session, existingSession, "session_id");
         return sessionRepositories.saveAndFlush(existingSession);
     }

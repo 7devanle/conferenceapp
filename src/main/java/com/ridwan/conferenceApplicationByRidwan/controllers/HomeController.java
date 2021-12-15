@@ -15,7 +15,7 @@ public class HomeController {
     private String appVersion;
 
     @GetMapping
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public Map getStatus(){
         Map map = new HashMap<String, String>();
         map.put("app-version", appVersion);
